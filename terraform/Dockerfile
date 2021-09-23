@@ -6,9 +6,7 @@ ARG terraform_version=1.0.7
 
 WORKDIR /home/terraform
 
-RUN apk add --no-cache --upgrade  --virtual .build-deps \
-    git sudo \
-    && apk del .build-deps
+RUN apk add --no-cache --upgrade git
 
 RUN wget -O terraform.zip https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip \
     && unzip terraform.zip \
